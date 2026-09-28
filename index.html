@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CityResQ｜城市災害韌性分析平台</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1b2430;--mu:#5d6b7c;--ac:#c2410c;--ac2:#0f766e;--bd:#e2e6eb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171d;--card:#1a212a;--tx:#e8ecf1;--mu:#95a3b3;--ac:#fb923c;--ac2:#2dd4bf;--bd:#2a3440}}
+:root[data-theme="dark"]{--bg:#12171d;--card:#1a212a;--tx:#e8ecf1;--mu:#95a3b3;--ac:#fb923c;--ac2:#2dd4bf;--bd:#2a3440}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.75 -apple-system,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--bd);z-index:9;display:flex;gap:4px;padding:10px 16px;overflow-x:auto;align-items:center}
+nav b{color:var(--ac);margin-right:12px;white-space:nowrap}
+nav a{color:var(--mu);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;font-size:14px}
+nav a:hover{background:var(--bg);color:var(--tx)}
+main{max-width:1000px;margin:0 auto;padding:0 20px 60px}
+header.hero{padding:64px 0 32px}
+.tag{display:inline-block;font-size:13px;color:var(--ac2);border:1px solid var(--ac2);border-radius:99px;padding:2px 12px}
+h1{font-size:clamp(32px,6vw,52px);margin:14px 0 6px;line-height:1.2}
+.en{color:var(--mu);font-size:15px;margin:0 0 18px}
+h2{font-size:26px;margin:0 0 6px;padding-top:48px}
+h2 small{display:block;font-size:13px;color:var(--ac);letter-spacing:.08em;font-weight:600}
+p.lead{color:var(--mu);margin:4px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 18px}
+.card h3{margin:0 0 4px;font-size:16px}
+.card p{margin:0;color:var(--mu);font-size:14px;line-height:1.65}
+.n{color:var(--ac);font-weight:700;margin-right:6px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flow span{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font-size:14px}
+.flow i{color:var(--mu);font-style:normal}
+.notice{border-left:4px solid var(--ac);background:var(--card);padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0;font-size:15px}
+.map{height:320px;border:2px dashed var(--bd);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--mu);padding:20px;background:var(--card)}
+.layers{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.layers label{font-size:14px;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:4px 10px;opacity:.6}
+.kpi{font-size:28px;font-weight:700;color:var(--mu)}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--bd);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg)}
+.st{color:var(--ac);font-weight:600}
+ul{padding-left:20px;margin:6px 0}
+footer{border-top:1px solid var(--bd);color:var(--mu);font-size:13px;padding:20px;text-align:center}
+</style>
+</head>
+<body>
+<nav><b>🏙️ CityResQ</b>
+<a href="#questions">研究問題</a><a href="#flow">研究流程</a><a href="#map">GIS 地圖</a><a href="#features">分析功能</a><a href="#dashboard">Dashboard</a><a href="#sources">Data Sources</a><a href="#method">Methodology</a><a href="#tech">技術架構</a><a href="#roadmap">開發階段</a></nav>
+<main>
+<header class="hero">
+<span class="tag">研究型資料平台 · V1 建置中</span>
+<h1>CityResQ<br>城市災害韌性分析平台</h1>
+<p class="en">A GIS-Based Urban Disaster Risk and Resource Accessibility Analysis Platform Using Open City Data</p>
+<p class="lead" style="max-width:720px;color:var(--tx)">基於公開城市資料與 GIS 空間分析之城市災害風險與資源可及性研究平台。從真實的城市與社會問題出發，蒐集公開資料，透過資料清理、資料庫、GIS 空間分析、統計分析與視覺化，研究災害風險、人口分布與公共資源配置之間的關係，並以互動式網站呈現研究成果。</p>
+<div class="notice"><b>研究聲明：</b>本平台所有資料須記錄來源、時間、格式與更新時間，不虛構資料。分析結果僅為研究模型，不代表官方災害預測。網站只呈現「根據本研究所建立的指標與公開資料，此區域呈現較高的相對風險值」，不宣稱「這裡就是最危險的區域」。</div>
+</header>
+
+<section id="questions"><h2><small>RESEARCH QUESTIONS</small>核心研究問題</h2>
+<p class="lead">這些問題不需一開始全部完成，將隨開發逐步深入。</p>
+<div class="grid" id="qs"></div></section>
+
+<section id="flow"><h2><small>WORKFLOW</small>研究流程</h2>
+<p class="lead">網站不只是「查資料」，而是讓使用者從資料中觀察城市現象，並理解分析所得的研究結果。</p>
+<div class="flow" id="fl"></div></section>
+
+<section id="map"><h2><small>GIS MAP</small>城市 GIS 地圖</h2>
+<p class="lead">使用者可自行開啟或關閉圖層，觀察不同資料在空間上的關係。地圖僅使用真實公開資料，不使用自行產生的示意位置。</p>
+<div class="layers" id="ly"></div>
+<div class="map"><b style="font-size:18px;color:var(--tx)">尚未載入任何資料圖層</b><span>V1 將選定研究範圍並匯入第一組真實公開資料（如行政區界、避難場所），以 Leaflet 呈現。</span></div></section>
+
+<section id="features"><h2><small>ANALYSIS MODULES</small>分析功能</h2>
+<p class="lead">八大功能模組，依開發階段逐步完成。</p>
+<div class="grid" id="ft"></div>
+<div class="notice">風險分類（高／中高／中／低）須依實際資料分布與模型結果決定，不預設沒有依據的門檻。所有指標、公式與權重都必須有清楚定義與理由；資源密度等指標須依資料真實定義計算，不創造無意義指標。</div></section>
+
+<section id="dashboard"><h2><small>DASHBOARD</small>資料分析儀表板</h2>
+<p class="lead">所有數字須來自實際資料，或明確標示為計算結果。目前尚未匯入資料，以下顯示「—」。</p>
+<div class="grid" id="kp"></div></section>
+
+<section id="sources"><h2><small>DATA SOURCES</small>資料來源</h2>
+<p class="lead">整個研究必須具可追溯性。資料一律優先使用政府開放資料、官方統計與其他可靠公開資料。</p>
+<div class="wrap"><table id="tb"></table></div>
+<p class="lead" style="margin-top:14px">此表為資料盤點結果，尚未下載。正式匯入時，每份資料將再記錄資料期間、最後更新時間、使用方式與處理方式。若資料不存在、無法取得或不足以支持某項分析，將直接標明，不自行製造資料。</p></section>
+
+<section id="method"><h2><small>RESEARCH METHODOLOGY</small>研究方法</h2>
+<p class="lead">從提出問題到得出結論：<b>提出問題 → 蒐集資料 → 分析資料 → 建立方法 → 驗證結果 → 發現問題 → 得出研究結論</b></p>
+<div class="grid" id="md"></div>
+<div class="notice"><b>風險指標概念：</b>Hazard（災害危險程度）、Exposure（人口或城市暴露程度）、Vulnerability（脆弱程度，如高齡人口比例）、Accessibility（公共資源可及性）。各指標標準化後再組成綜合風險指標。<br><b>敏感度分析：</b>模型 A（災害權重較高）、模型 B（人口權重較高）、模型 C（可及性權重較高）。檢驗權重改變時風險排名的變化，以及哪些區域在所有模型下都維持相對高風險。<br><b>可及性：</b>第一階段使用直線距離與簡單空間分析，之後視需要加入道路網路與實際行走距離。</div></section>
+
+<section id="tech"><h2><small>TECH STACK</small>技術架構</h2>
+<p class="lead">先完成可運作的 MVP，再逐步升級，不一開始使用過多複雜技術。</p>
+<div class="grid" id="tc"></div>
+<div class="notice"><b>關於 AI 與機器學習：</b>不為了「看起來有 AI」而加入。第一階段先完成 資料 → GIS → 統計分析 → 風險模型。之後若使用聚類、分類、回歸、特徵分析或異常值偵測，必須說明使用的資料、特徵、目標變數、選擇理由、訓練與驗證方式，以及模型限制。</div></section>
+
+<section id="roadmap"><h2><small>ROADMAP</small>開發階段</h2>
+<div class="grid" id="rm"></div></section>
+</main>
+<footer>CityResQ · 研究型資料平台 · 分析結果為研究模型，不代表官方災害預測</footer>
+<script>
+const $=id=>document.getElementById(id);
+const card=(t,p,n)=>`<div class="card"><h3>${n?`<span class="n">${n}</span>`:''}${t}</h3><p>${p}</p></div>`;
+$('qs').innerHTML=["歷史災害是否具有特定的空間分布或時間趨勢？","人口密度與災害暴露程度之間是否存在某種關聯？","高齡人口比例較高的區域是否具有不同的災害資源需求？","避難場所、醫療院所、消防單位等公共資源的空間分布是否與人口分布相匹配？","某些區域是否同時具有較高的災害暴露程度與較低的公共資源密度？","能否利用公開資料建立具有明確定義的城市災害風險指標？","改變資料權重時，風險分析結果是否會產生明顯變化？"].map((q,i)=>card(q,'',i+1)).join('');
+$('fl').innerHTML=["公開資料蒐集","資料清理","資料標準化","建立資料庫","GIS 空間資料整合","探索性資料分析","統計分析","建立風險指標","模型與敏感度分析","資料視覺化","研究結果呈現"].map(s=>`<span>${s}</span>`).join('<i>→</i>');
+$('ly').innerHTML=["歷史災害","避難場所","醫院","消防單位","學校","道路","河川","行政區","人口密度"].map(l=>`<label><input type="checkbox" disabled> ${l}</label>`).join('');
+$('ft').innerHTML=[
+["城市 GIS 地圖","多圖層互動地圖，觀察災害、資源與人口的空間關係。"],
+["災害分析","災害類型、次數、時間、地點、行政區分布、年度與月份／季節趨勢。例：哪些區域歷史災害較集中？不同災害類型的空間分布是否不同？"],
+["人口分析","人口總數、密度、行政區分布、高齡人口比例，並與災害資料做空間比較。"],
+["公共資源分析","避難場所、醫院、消防、學校等分布與資源密度（如人口數／避難場所數、資源數／單位面積），計算方式依資料真實定義決定。"],
+["資源可及性分析","不同區域的人口是否容易取得公共資源？研究人口與避難場所／醫療資源的距離、服務範圍與空間關係。"],
+["城市災害風險分析","以 Hazard、Exposure、Vulnerability、Accessibility 建立研究型綜合風險指標，並說明公式與權重理由。"],
+["風險地圖","將分析結果轉為 GIS 圖層，依實際資料與模型結果分級。"],
+["敏感度分析","比較不同權重模型下的排名變化，找出在各模型下都相對高風險的區域，檢驗模型穩定度。"]
+].map((f,i)=>card(f[0],f[1],i+1)).join('');
+$('kp').innerHTML=["災害事件總數","分析行政區數","避難場所數","醫療資源數","人口總數","平均人口密度"].map(k=>`<div class="card"><p>${k}</p><div class="kpi">—</div></div>`).join('')+["災害年度趨勢","災害類型分布","人口分布","公共資源分布","風險分析結果"].map(k=>card(k,'待資料匯入後以 Chart.js 呈現')).join('');
+const cols=["類別","資料名稱","提供單位","格式","平台","範圍","備註 / 限制","狀態"];
+const D="政府資料開放平臺 data.gov.tw/dataset/";
+const rows=[
+["災害","歷史淹水災害點位（100～104年）","國家災害防救科技中心 NCDR","ZIP（點位）","NCDR 資料服務平台","全國","年份有限；尚未確認事件規模與行政區欄位","待下載"],
+["災害","坡地災害資料庫（89～109年）","NCDR","壓縮檔","NCDR 資料服務平台","全國","需登入申請","待申請"],
+["災害","災害潛勢圖資（淹水、土石流、土壤液化、海嘯）","NCDR／水利署／農村水保署／地調所","SHP／KMZ","NCDR、水利署 GIC","全國","潛勢是模擬結果而非實際災害；部分圖資限政府單位申請","待確認"],
+["人口","村里戶數、單一年齡人口","內政部（提供機關待確認）","CSV／API",D+"32973","全國村里","可自行加總 65 歲以上人口","待下載"],
+["人口","社會經濟資料服務平台（統計區人口、年齡、密度）","內政部統計處","CSV","segis.moi.gov.tw","統計區／村里／鄉鎮","97～114 年多期","待下載"],
+["空間","縣市界、鄉鎮市區界、村里界圖","內政部國土測繪中心","SHP",D+"7442、7441、5968","全國","使用需依授權條款顯名聲名","待下載"],
+["空間","OpenStreetMap 台灣（道路等）","OSM／Geofabrik","PBF／SHP","download.geofabrik.de","全國","檔案大，建議先只切台北市；需標示 ODbL","待下載"],
+["空間","河川圖資","經濟部水利署","SHP／KML","gic.wra.gov.tw","全國","僅供參考，有製圖誤差","待確認"],
+["資源","避難收容處所點位檔","內政部消防署","CSV",D+"73242","全國","含經緯度、預計收容人數；更新不定期","待下載"],
+["資源","救援與應變單位點位（消防單位）","內政部消防署","CSV",D+"5969","全國","含經緯度","待下載"],
+["資源","健保特約醫事機構（區域醫院、診所等）","衛福部中央健康保險署","CSV／API",D+"39281、39283","全國","以地址為主，需地理編碼；診所含歇業舊資料","待下載"],
+["資源","學校名錄","教育部統計處","CSV",D+"6089","全國","是否附座標待確認，可能需地理編碼","待確認"],
+["資源","公園","—","—","—","—","尚未找到統一的全國公開資料","未找到"]
+];
+$('tb').innerHTML=`<tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr>`+rows.map(r=>`<tr>${r.map((c,i)=>`<td${i==7?' class="st"':''}>${c}</td>`).join('')}</tr>`).join('');
+$('md').innerHTML=["研究問題","資料蒐集","資料清理","資料庫建立","GIS 整合","探索性資料分析","統計分析","風險指標建立","模型測試","敏感度分析","研究結果","研究限制與未來方向"].map((s,i)=>card(s,'',i+1)).join('');
+$('tc').innerHTML=[["前端","HTML、CSS、JavaScript、Leaflet、Chart.js"],["後端","Python、FastAPI"],["資料分析","Pandas、NumPy、Matplotlib、Scikit-learn"],["資料庫","第一階段 SQLite；資料量與 GIS 需求增加後評估 PostgreSQL + PostGIS"],["地理資料","GeoJSON、OpenStreetMap 等公開地理資料"]].map(t=>card(t[0],t[1])).join('');
+$('rm').innerHTML=[["V1 基本研究網站","首頁、GIS 地圖、一組真實公開資料、基本資料表、基本圖表、資料來源頁面。"],["V2 多種資料整合","災害、人口、公共資源、空間分析、Dashboard。"],["V3 研究模型","風險指標、指標標準化、權重設定、風險地圖、敏感度分析。"],["V4 進階資料分析","機器學習、聚類分析、進階 GIS、模型驗證、研究成果整理。"]].map(r=>card(r[0],r[1])).join('');
+</script>
+</body>
+</html>
